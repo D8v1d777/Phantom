@@ -1,6 +1,4 @@
-
-# 1. PROJECT README.md
-readme_content = """# 🔮 PhantomFrame
+# 🔮 PhantomFrame
 
 > **Advanced LSB Steganography & Encryption Platform**
 
@@ -50,7 +48,7 @@ PhantomFrame/
 ├── 📁 docs/
 │   ├── ARCHITECTURE.md       # System architecture
 │   ├── API.md                # Internal API reference
-│   └── EXPO_GUIDE.md         # Presentation guide for judges
+│   └── EXPO_GUIDE.md         # Presentation手に presentation guide for judges
 └── 📁 demo/
     └── sample-images/        # Demo images for testing
 ```
@@ -63,7 +61,7 @@ PhantomFrame/
 2. **Open** `index.html` in any modern browser
 3. **Drag & drop** a PNG/BMP image into the Encode panel
 4. **Type** a secret message or upload a file
-5. **Click** \"Hide Data\" and download your stego image
+5. **Click** "Hide Data" and download your stego image
 6. **Use** the Decode panel to extract hidden data later
 
 ---
@@ -125,9 +123,3 @@ Built from scratch for Project Expo 2026
 ## 📜 License
 
 MIT License — Free for educational and personal use.
-"""
-
-with open(f'{base_dir}/README.md', 'w', encoding='utf-8') as f:
-    f.write(readme_content)
-
-print("✅ README.md created")
