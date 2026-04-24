@@ -1,4 +1,4 @@
-# 🔮 PhantomFrame
+# PhantomFrame
 
 > **Advanced LSB Steganography & Encryption Platform**
 
