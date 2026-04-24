@@ -116,7 +116,7 @@ Modified Pixel:   [R: 10101100] [G: 11010011] [B: 00111101]
 
 ## 👨‍💻 Author
 
-Built from scratch for Project Expo 2026
+David
 
 ---
 
