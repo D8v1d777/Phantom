@@ -1,118 +1,412 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=UnifrakturCook:wght@700&display=swap');
+
+:root {
+    --blood: #8b0000;
+    --crimson: #dc143c;
+    --abyss: #050505;
+    --void: #0f0000;
+    --bone: #d8c9a3;
+    --gold: #b8860b;
+    --shadow: rgba(139, 0, 0, 0.55);
+    --glow: rgba(220, 20, 60, 0.4);
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #0a0a0f;
-    color: #fff;
+    font-family: 'Cinzel', serif;
+    background:
+        radial-gradient(circle at center, rgba(139, 0, 0, 0.12), transparent 40%),
+        linear-gradient(180deg, #000 0%, #090000 35%, #120000 100%);
+    color: var(--bone);
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
+/* Animated occult background */
 .background {
     position: fixed;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 20% 30%, #1a1a2e, #0a0a0f);
-    z-index: -1;
+    inset: 0;
+    z-index: -2;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(139, 0, 0, 0.15), transparent 25%),
+        repeating-radial-gradient(circle at center,
+            transparent 0 25px,
+            rgba(220, 20, 60, 0.04) 26px 28px),
+        linear-gradient(135deg, #000, #130000, #000);
+    animation: pulseRitual 8s infinite alternate ease-in-out;
 }
+
+.background::before {
+    content: "⛧";
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 28rem;
+    color: rgba(139, 0, 0, 0.08);
+    text-shadow: 0 0 80px rgba(255, 0, 0, 0.15);
+    animation: rotateSigil 120s linear infinite;
+}
+
+.background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 0, 0, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.025) 1px, transparent 1px);
+    background-size: 50px 50px;
+    mix-blend-mode: screen;
+}
+
+@keyframes rotateSigil {
+    from {
+        transform: rotate(0deg) scale(1);
+    }
+
+    to {
+        transform: rotate(360deg) scale(1.08);
+    }
+}
+
+@keyframes pulseRitual {
+    from {
+        filter: brightness(1);
+    }
+
+    to {
+        filter: brightness(1.15);
+    }
+}
+
+/* ===== HEADER UPGRADE ===== */
 
 header {
+    position: relative;
     text-align: center;
-    padding: 20px;
+    padding: 45px 20px 35px;
+    border-bottom: 1px solid rgba(184, 134, 11, 0.18);
+    overflow: hidden;
 }
 
+/* Removes any unwanted decorative icon near title */
+header h1::before,
+header h1::after,
+.panel::before {
+    content: none !important;
+}
+
+header h1 {
+    position: relative;
+    margin: 0;
+    font-family: 'UnifrakturCook', cursive;
+    font-size: clamp(4rem, 8vw, 6.5rem);
+    color: #d8c9a3;
+    letter-spacing: 4px;
+    text-transform: none;
+    animation: phantomFloat 5s ease-in-out infinite;
+    text-shadow:
+        0 0 10px rgba(220, 20, 60, 0.5),
+        0 0 25px rgba(220, 20, 60, 0.35),
+        0 0 50px rgba(139, 0, 0, 0.35);
+}
+
+/* Elegant subtitle fitting PhantomFrame */
+header p {
+    margin: 12px 0 0;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: rgba(216, 201, 163, 0.82);
+    animation: phantomGlow 4s ease-in-out infinite alternate;
+}
+
+/* Floating spectral mist */
+header::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    background:
+        radial-gradient(circle, rgba(220, 20, 60, 0.12), transparent 35%),
+        radial-gradient(circle, rgba(139, 0, 0, 0.10), transparent 45%);
+    animation: mistDrift 18s linear infinite;
+    pointer-events: none;
+}
+
+header::after {
+    content: "The Veil Between Worlds";
+    position: absolute;
+    left: 50%;
+    bottom: 8px;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    color: rgba(184, 134, 11, 0.45);
+    white-space: nowrap;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes phantomFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes phantomGlow {
+    from {
+        opacity: 0.75;
+        text-shadow: 0 0 8px rgba(220, 20, 60, 0.25);
+    }
+    to {
+        opacity: 1;
+        text-shadow:
+            0 0 15px rgba(220, 20, 60, 0.4),
+            0 0 30px rgba(220, 20, 60, 0.2);
+    }
+}
+
+@keyframes mistDrift {
+    from {
+        transform: rotate(0deg) scale(1);
+    }
+    to {
+        transform: rotate(360deg) scale(1.15);
+    }
+}
+
+
+/* Layout */
 .container {
     display: flex;
-    gap: 20px;
-    padding: 20px;
+    gap: 30px;
+    padding: 35px;
+    flex-wrap: wrap;
 }
 
+/* Panels */
 .panel {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    padding: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
-    transition: 0.3s;
+    flex: 1 1 500px;
+    position: relative;
+    padding: 30px;
+    border-radius: 22px;
+    background:
+        linear-gradient(145deg,
+            rgba(25, 0, 0, 0.92),
+            rgba(8, 0, 0, 0.96));
+    border: 1px solid rgba(184, 134, 11, 0.25);
+    box-shadow:
+        0 0 25px rgba(139, 0, 0, 0.35),
+        inset 0 0 40px rgba(255, 0, 0, 0.05);
+    backdrop-filter: blur(14px);
+    transition: all 0.35s ease;
+    overflow: hidden;
+}
+
+.panel::before {
+    content: "☩";
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.8rem;
+    color: rgba(184, 134, 11, 0.15);
 }
 
 .panel:hover {
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+    transform: translateY(-6px);
+    box-shadow:
+        0 0 40px rgba(220, 20, 60, 0.45),
+        inset 0 0 60px rgba(255, 0, 0, 0.08);
 }
 
+.panel h2 {
+    margin-top: 0;
+    font-size: 2rem;
+    color: var(--crimson);
+    text-shadow: 0 0 15px rgba(220, 20, 60, 0.4);
+}
+
+/* Dropzone */
 .dropzone {
-    border: 2px dashed #444;
-    padding: 30px;
+    border: 2px dashed rgba(184, 134, 11, 0.45);
+    border-radius: 18px;
+    padding: 40px 20px;
     text-align: center;
-    margin-bottom: 15px;
-    transition: 0.3s;
+    margin-bottom: 20px;
+    background:
+        radial-gradient(circle, rgba(139, 0, 0, 0.08), transparent 70%);
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
+.dropzone:hover,
 .dropzone.dragover {
-    border-color: cyan;
-    background: rgba(0, 255, 255, 0.1);
+    border-color: var(--crimson);
+    box-shadow:
+        0 0 30px rgba(220, 20, 60, 0.3),
+        inset 0 0 30px rgba(220, 20, 60, 0.12);
+    transform: scale(1.02);
 }
 
+/* Inputs */
 textarea,
 input,
 select {
     width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 10px;
-    border: none;
+    padding: 15px 18px;
+    margin: 12px 0;
+    border: 1px solid rgba(184, 134, 11, 0.25);
+    border-radius: 14px;
+    background: rgba(10, 0, 0, 0.85);
+    color: var(--bone);
+    font-family: inherit;
+    font-size: 1rem;
     outline: none;
+    transition: all 0.3s ease;
 }
 
+textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+    border-color: var(--crimson);
+    box-shadow:
+        0 0 20px rgba(220, 20, 60, 0.25);
+}
+
+textarea::placeholder,
+input::placeholder {
+    color: rgba(216, 201, 163, 0.45);
+}
+
+/* Buttons */
 button {
     width: 100%;
-    padding: 12px;
+    padding: 16px;
+    margin-top: 10px;
     border: none;
-    border-radius: 10px;
-    background: linear-gradient(45deg, cyan, purple);
-    color: white;
-    font-weight: bold;
+    border-radius: 14px;
+    background:
+        linear-gradient(135deg,
+            #330000,
+            #8b0000,
+            #330000);
+    color: #fff5dc;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: 0.3s;
+    box-shadow:
+        0 0 20px rgba(139, 0, 0, 0.4);
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    transform: scale(1.05);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow:
+        0 0 35px rgba(220, 20, 60, 0.65);
 }
 
+button:active {
+    transform: scale(0.98);
+}
+
+/* Progress */
 .progress {
-    height: 6px;
-    background: #222;
-    margin-top: 10px;
-    border-radius: 5px;
+    height: 10px;
+    margin-top: 20px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(184, 134, 11, 0.2);
 }
 
 #encodeProgress {
     height: 100%;
     width: 0%;
-    background: cyan;
-    transition: width 0.4s ease;
+    background:
+        linear-gradient(90deg,
+            #8b0000,
+            #ff0033,
+            #8b0000);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+    transition: width 0.45s ease;
 }
-/* Comparison Slider */
+
+/* Compare Slider */
 .compare-container {
-  position: relative;
-  width: 100%;
-  margin-top: 20px;
-  min-height: 300px;
+    position: relative;
+    width: 100%;
+    margin-top: 25px;
+    min-height: 320px;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(184, 134, 11, 0.3);
+    box-shadow: 0 0 25px rgba(139, 0, 0, 0.3);
 }
 
 .compare-container img {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 8px;
+    width: 100%;
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
 }
 
 #stegoPreview {
-  clip-path: inset(0 50% 0 0);
+    clip-path: inset(0 50% 0 0);
 }
 
 #compareSlider {
-  width: 100%;
-  margin-top: 310px;
-  cursor: pointer;
+    width: 100%;
+    margin-top: 330px;
+    appearance: none;
+    height: 8px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #300, #900, #300);
+    cursor: pointer;
+}
+
+#compareSlider::-webkit-slider-thumb {
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--crimson);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+    cursor: pointer;
+}
+
+/* Canvas */
+canvas {
+    border-radius: 14px !important;
+    border: 1px solid rgba(184, 134, 11, 0.25) !important;
+    box-shadow: 0 0 20px rgba(139, 0, 0, 0.2);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #090000;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#5a0000, #b00020);
+    border-radius: 10px;
 }

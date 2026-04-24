@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>PhantomFrame</title>
   <link rel="stylesheet" href="assets/css/phantom.css" />
 </head>
+
 <body>
 
   <div class="background"></div>
 
   <header>
-    <h1>🔮 PhantomFrame</h1>
-    <p>Steganography + Encryption Platform</p>
+    <h1> PhantomFrame</h1>
   </header>
 
   <main class="container">
@@ -40,8 +41,10 @@
         <div id="encodeProgress"></div>
       </div>
 
-      <button id="heatmapBtn" style="display: none; margin-top: 15px; background: #ff00ff; color: white;">Show Heatmap</button>
-      <canvas id="heatmapCanvas" style="display: none; max-width: 100%; margin-top: 15px; border-radius: 8px; border: 1px solid rgba(0, 242, 255, 0.3);"></canvas>
+      <button id="heatmapBtn" style="display: none; margin-top: 15px; background: #ff00ff; color: white;">Show
+        Heatmap</button>
+      <canvas id="heatmapCanvas"
+        style="display: none; max-width: 100%; margin-top: 15px; border-radius: 8px; border: 1px solid rgba(0, 242, 255, 0.3);"></canvas>
 
       <div class="compare-container" id="compareContainer" style="display: none;">
         <img id="originalPreview" />
@@ -51,8 +54,10 @@
 
       <div id="histContainer" style="display: none; margin-top: 30px;">
         <h3>Histogram Analysis</h3>
-        <canvas id="histOriginal" width="400" height="150" style="width: 100%; height: 150px; background: #111; margin-bottom: 10px; border-radius: 5px;"></canvas>
-        <canvas id="histStego" width="400" height="150" style="width: 100%; height: 150px; background: #111; margin-bottom: 10px; border-radius: 5px;"></canvas>
+        <canvas id="histOriginal" width="400" height="150"
+          style="width: 100%; height: 150px; background: #111; margin-bottom: 10px; border-radius: 5px;"></canvas>
+        <canvas id="histStego" width="400" height="150"
+          style="width: 100%; height: 150px; background: #111; margin-bottom: 10px; border-radius: 5px;"></canvas>
         <p id="histExplain" style="font-size: 0.8rem; color: #aaa; text-align: center;"></p>
       </div>
 
@@ -64,14 +69,15 @@
           <option value="2">Bit 2</option>
         </select>
 
-        <canvas id="lsbCanvas" style="width: 100%; height: auto; background: #111; border-radius: 5px; border: 1px solid rgba(0, 242, 255, 0.3);"></canvas>
+        <canvas id="lsbCanvas"
+          style="width: 100%; height: auto; background: #111; border-radius: 5px; border: 1px solid rgba(0, 242, 255, 0.3);"></canvas>
         <p id="lsbExplain" style="font-size: 0.8rem; color: #aaa; text-align: center; margin-top: 10px;"></p>
       </div>
     </section>
 
     <!-- DECODE PANEL -->
     <section class="panel" id="decodePanel">
-      <h2>🔍 Decode</h2>
+      <h2>⛧ Decode</h2>
 
       <div class="dropzone" id="decodeDrop">
         <p>Drop Stego Image</p>
@@ -86,7 +92,8 @@
       </select>
 
       <button id="detectBtn" style="background: #ffaa00; color: #111; margin-bottom: 10px;">Detect Hidden Data</button>
-      <p id="detectResult" style="color: #00f2ff; text-align: center; font-weight: bold; min-height: 20px; margin-bottom: 15px;"></p>
+      <p id="detectResult"
+        style="color: #00f2ff; text-align: center; font-weight: bold; min-height: 20px; margin-bottom: 15px;"></p>
 
       <button id="decodeBtn">Extract Data</button>
 
@@ -103,4 +110,5 @@
   <script src="assets/js/phantom.js"></script>
 
 </body>
+
 </html>
